@@ -1,7 +1,7 @@
 # jq-dots
 
 ### What is jq-dots
-jq-dots is a jquery animation plugin which lets you show a cloud of beautiful dots around your mouse pointer easily.
+jq-dots is a jQuery animation plugin which lets you show a cloud of beautiful dots around your mouse pointer easily.
 
 <div align=center>
 <img src='default.gif' width='680' height='524' align=center/>
