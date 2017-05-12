@@ -9,7 +9,7 @@ the_dispersion: The value is (0, 0.1) which measures the dispersion of the dots 
 the_filledColor: Set the color inside the dots.
 the_borderColor: Set the border color of the dots.
 the_shape: Choose the shape of the clouds which flows your mouse. The options are 'dot', 'rec', 'star4', 'star5' and 'star8'. The default is 'dot'.
-
+the_mouseEvent: Select the mouse event. You can use 'mousemove' or 'click' to make the cloud move forward to your mouse pointer.
 */    
     var defaults = {
         'the_size':{'x':1000,'y':1000},
@@ -102,7 +102,6 @@ the_shape: Choose the shape of the clouds which flows your mouse. The options ar
             this.x += this.vx;
             this.y += this.vy;
             this.color += 1;
-            // console.log(this.vx +" and "+this.vy);
 
         },
         renderStroke: function(ctx) {
@@ -110,9 +109,6 @@ the_shape: Choose the shape of the clouds which flows your mouse. The options ar
             ctx.fillStyle = option.the_borderColor || 'hsla(' + this.color + ', 100%, 50%, 1)';
             ctx.translate(this.x, this.y);
             ctx.beginPath();
-            // ctx.arc(0, 0, this.r, 0, Math.PI * 2);
-            // ctx.rect((-0.5)*this.r,(-0.5)*this.r,this.r,this.r);
-            // pathOfDrawStar(0, 0, 5, this.r, 0.4*this.r);
             chooseTheShape(option.the_shape, this.r);
             ctx.fill();
             ctx.restore();
@@ -123,9 +119,6 @@ the_shape: Choose the shape of the clouds which flows your mouse. The options ar
             ctx.fillStyle = option.the_filledColor;
             ctx.translate(this.x, this.y);
             ctx.beginPath();
-            // ctx.arc(0, 0, this.r * 0.8, 0, Math.PI * 2);
-            // ctx.rect((-0.4)*this.r,(-0.4)*this.r,this.r*0.8,this.r*0.8);
-            // pathOfDrawStar(0, 0, 5, 0.8*this.r, 0.8*0.4*this.r);
             chooseTheShape(option.the_shape, 0.8*this.r);
             ctx.fill();
             ctx.restore();
@@ -153,8 +146,6 @@ the_shape: Choose the shape of the clouds which flows your mouse. The options ar
         mouse.y = e.clientY - rect.top;
     });
 
-
-// var n = 0;
     requestAnimationFrame(function loop() {
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
         requestAnimationFrame(loop);
@@ -170,11 +161,7 @@ the_shape: Choose the shape of the clouds which flows your mouse. The options ar
             blob.renderFill(ctx);
         }
 
-        
-        
-        
-        // n++;
-        // console.log(n);    
+
     });
 
 }
